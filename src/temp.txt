@@ -1,0 +1,64 @@
+float alph = M_PI / 180.0f;
+int sign = 1; // For missile (sign 1: missle releases from right wing, sign -1, left wing)
+int score_c = 123456;
+float clock_bomb = -1.0f;
+float clock_missile = -1.0f;
+int critical_altitude = 0;
+
+int camera = 1;
+
+/*
+1 for followcam
+2 for topcam
+3 for towercam
+4 for first person
+5 for helicopter cam
+*/
+
+GLMatrices Matrices;    // For game
+GLMatrices Matrix_Dash; // For dashboard
+
+GLuint     programID;
+GLFWwindow *window;
+
+Ball ball1;
+
+Rectangle sea;
+Rectangle base, line1, line2;
+Cube tower;
+
+// Test objects
+
+Arrow arrow;
+Volcano volc;
+Ring smoke;
+Cannon e1;
+Para e2;
+
+vector<Bomb> missile_set;
+vector<Bomb> bomb_set;
+vector<Cube> fuelup;
+vector<Ring> smoke_rings;
+
+vector<glm::vec2> checkpoints;
+glm::vec2 next_check;
+
+vector<Volcano> volc_set;
+vector<Cannon> e1_set;
+vector<Para> e2_set;
+vector<Bomb> e1_bset;
+
+// Dashboard related
+
+Ring volcano_warn; // -> for dashboard. activates when volcano is near. red dot. implement after world generation
+Ring fuel_meter;
+Needle fuel_needle;
+Needle full_needle;
+Needle empty_needle;
+
+Sevenseg score[6];
+Sevenseg speed[6];
+Sevenseg altitude[6];
+Sevenseg c_altitude[6];
+
+// ---------------------
